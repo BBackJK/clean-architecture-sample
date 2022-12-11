@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbackjk.test.caat.legacy.biz.dao.LegacyBoardArticleDao">
+
+	<select id="findById"
+			resultType="bbackjk.test.caat.legacy.biz.dto.BoardArticleDto"
+	>
+		select *
+			, b.name as board_name
+			, '등록자' as user_name
+		from board_article ba
+		left join board b on b.id = ba.board_id
+		where ba.id = #{id}
+	</select>
+
+	<insert id="insert">
+		insert into board_article
+		(
+		 	board_id
+		 	, user_id
+		 	, title
+		 	, contents
+		 	, created_at
+		 	, created_id
+		 	, updated_at
+		 	, updated_id
+		)
+		values
+		(
+			#{boardId}
+			, #{userId}
+			, #{title}
+			, #{contents}
+			, now()
+			, #{loginUserId}
+			, now()
+			, #{loginUserId}
+		)
+	</insert>
+
+	<update id="update">
+		update board_article
+		set title = #{title}
+			, contents = #{contents}
+			, updated_at = now()
+			, updated_id = #{loginUserId}
+		where id = #{id}
+	</update>
+
+	<update id="increaseViewCount">
+		update board_article
+		set view_count = view_count + 1
+		where id = #{id}
+	</update>
+</mapper>

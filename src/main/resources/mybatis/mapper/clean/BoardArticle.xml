@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbackjk.test.caat.clean.article.adapter.out.persistence.dao.BoardArticleDao">
+
+	<select id="findById"
+			resultType="bbackjk.test.caat.clean.article.adapter.out.persistence.entity.BoardArticleEntity"
+	>
+		select *
+		from board_article ba
+		left join board b on b.id = ba.board_id
+		where ba.id = #{id}
+		limit 1
+	</select>
+
+	<insert id="insert">
+		insert into board_article
+		(
+		 	board_id
+		 	, user_id
+		 	, title
+		 	, contents
+		 	, view_count
+		 	, created_at
+		 	, created_id
+		 	, updated_at
+		 	, updated_id
+		)
+		values
+		(
+			#{boardId}
+			, #{userId}
+			, #{title}
+			, #{contents}
+			, #{viewCount}
+			, #{createdAt}
+			, #{createdId}
+			, #{updatedAt}
+			, #{updatedId}
+		)
+	</insert>
+
+	<update id="update">
+		update board_article
+		set title = #{title}
+			, contents = #{contents}
+			, updated_at = #{updatedAt}
+			, updated_id = #{updatedId}
+		where id = #{id}
+	</update>
+
+	<update id="increaseViewCount">
+		update board_article
+		set view_count = #{viewCount}
+		where id = #{id}
+	</update>
+</mapper>

@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_USER: root
+      MYSQL_PASSWORD: test
+    ports:
+      - "53306:3306"
+    volumes:
+      - ./db/volumns/conf.d:/etc/mysql/conf.d
+      - ./db/volumns/data:/var/lib/mysql
+      - ./db/volumns/initdb.d:/docker-entrypoint-initdb.d
+    restart: always
+
+  app:
+    container_name: caat_api
+    restart: always
+    build: .
+    ports:
+      - "8888:8080"
+    depends_on:
+      - mariadb
+
