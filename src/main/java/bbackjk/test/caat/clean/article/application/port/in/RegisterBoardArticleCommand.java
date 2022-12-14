@@ -27,6 +27,7 @@ public class RegisterBoardArticleCommand extends SelfValidating<RegisterBoardArt
         , String contents
         , User.UserId loginUserId
     ) {
+
         this.boardId = boardId;
         this.title = title;
         this.contents = contents;

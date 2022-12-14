@@ -1,5 +1,7 @@
 package bbackjk.test.caat.clean.common;
 
+//
+
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validation;

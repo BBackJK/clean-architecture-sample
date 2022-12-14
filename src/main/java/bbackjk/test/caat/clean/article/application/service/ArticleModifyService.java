@@ -8,7 +8,7 @@ import bbackjk.test.caat.clean.user.application.out.LoadUserPort;
 import bbackjk.test.caat.clean.article.application.port.out.ModifyBoardArticlePort;
 import bbackjk.test.caat.clean.article.domain.BoardArticle;
 import bbackjk.test.caat.clean.user.domain.User;
-import bbackjk.test.caat.clean.common.UseCase;
+import bbackjk.test.caat.clean.common.annotation.UseCase;
 import bbackjk.test.caat.common.exception.UpdateNoPermissionException;
 import lombok.RequiredArgsConstructor;
 

@@ -2,7 +2,7 @@ package bbackjk.test.caat.common.enums;
 
 public enum ErrorCode {
 
-    DOMAIN_NOT_FOUND(404, "존재하지 않은 데이터 입니다."),
+    DOMAIN_NOT_FOUND(404, "존재하지 않은 도메인 입니다."),
     ENTITY_NOT_FOUND(404, "존재하지 않은 데이터 입니다."),
     BOARD_NOT_FOUND(404, "존재하지 않은 게시판 입니다."),
     DB_FAIL(500, "DB 에러"),

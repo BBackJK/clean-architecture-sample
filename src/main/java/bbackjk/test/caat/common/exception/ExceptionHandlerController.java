@@ -1,13 +1,11 @@
 package bbackjk.test.caat.common.exception;
 
 import bbackjk.test.caat.common.model.JsonResult;
-import bbackjk.test.caat.common.utils.StringUtilz;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestControllerAdvice

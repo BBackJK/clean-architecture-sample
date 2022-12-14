@@ -2,7 +2,7 @@ package bbackjk.test.caat.clean.user.adapter.out.persistence;
 
 import bbackjk.test.caat.clean.user.adapter.out.persistence.dao.UserDao;
 import bbackjk.test.caat.clean.user.domain.User;
-import bbackjk.test.caat.clean.common.PersistenceAdapter;
+import bbackjk.test.caat.clean.common.annotation.PersistenceAdapter;
 import bbackjk.test.caat.clean.user.application.out.LoadUserPort;
 import bbackjk.test.caat.common.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;

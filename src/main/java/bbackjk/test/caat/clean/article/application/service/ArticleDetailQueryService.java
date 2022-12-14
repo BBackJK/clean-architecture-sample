@@ -4,7 +4,7 @@ import bbackjk.test.caat.clean.article.application.port.in.BoardArticleDetailQue
 import bbackjk.test.caat.clean.article.application.port.out.LoadBoardArticlePort;
 import bbackjk.test.caat.clean.article.application.port.out.ModifyBoardArticlePort;
 import bbackjk.test.caat.clean.article.domain.BoardArticle;
-import bbackjk.test.caat.clean.common.QueryCommand;
+import bbackjk.test.caat.clean.common.annotation.QueryCommand;
 import lombok.RequiredArgsConstructor;
 
 @QueryCommand

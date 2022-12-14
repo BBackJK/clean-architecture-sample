@@ -1,12 +1,10 @@
 package bbackjk.test.caat.clean.article.application.service;
 
-import bbackjk.test.caat.clean.article.application.port.in.BoardArticleDetailQuery;
 import bbackjk.test.caat.clean.article.application.port.in.BoardArticleListQuery;
 import bbackjk.test.caat.clean.article.application.port.in.ListBoardArticleCommand;
 import bbackjk.test.caat.clean.article.application.port.out.LoadBoardArticlePort;
-import bbackjk.test.caat.clean.article.application.port.out.ModifyBoardArticlePort;
 import bbackjk.test.caat.clean.article.domain.BoardArticle;
-import bbackjk.test.caat.clean.common.QueryCommand;
+import bbackjk.test.caat.clean.common.annotation.QueryCommand;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

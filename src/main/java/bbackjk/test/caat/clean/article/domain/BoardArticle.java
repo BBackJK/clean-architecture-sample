@@ -16,17 +16,16 @@ public class BoardArticle {
 
     @Getter BoardArticleId id;
     @Getter Board board;
-    @Getter
-    User user;
+    @Getter User user;
 
     @Getter String title;
     @Getter String contents;
     @Getter long viewCount;
 
     @Getter LocalDateTime createdAt;
-    @Getter User createdBy;
+    @Getter Long createdBy;
     @Getter LocalDateTime updatedAt;
-    @Getter User updatedBy;
+    @Getter Long updatedBy;
 
     List<BoardComment> boardCommentList;
 
@@ -44,9 +43,9 @@ public class BoardArticle {
                 , contents
                 , 0
                 , LocalDateTime.now()
-                , loginUser
+                , loginUser.getId().getValue()
                 , LocalDateTime.now()
-                , loginUser
+                , loginUser.getId().getValue()
                 , Collections.emptyList()
         );
     }
@@ -59,9 +58,9 @@ public class BoardArticle {
             , String contents
             , long viewCount
             , LocalDateTime createdAt
-            , User createdBy
+            , Long createdBy
             , LocalDateTime updatedAt
-            , User updatedBy
+            , Long updatedBy
             , List<BoardComment> boardCommentList
     ) {
         return new BoardArticle(
@@ -82,7 +81,7 @@ public class BoardArticle {
     public void modify(String title, String contents, User loginUser) {
         this.title = title;
         this.contents = contents;
-        this.updatedBy = loginUser;
+        this.updatedBy = loginUser.getId().getValue();
         this.updatedAt = LocalDateTime.now();
     }
 

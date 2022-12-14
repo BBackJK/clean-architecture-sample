@@ -1,6 +1,6 @@
 package bbackjk.test.caat.clean.user.adapter.out.persistence;
 
-import bbackjk.test.caat.clean.common.DomainMapHelper;
+import bbackjk.test.caat.clean.common.annotation.DomainMapHelper;
 import bbackjk.test.caat.clean.user.adapter.out.persistence.entity.UserEntity;
 import bbackjk.test.caat.clean.user.domain.User;
 

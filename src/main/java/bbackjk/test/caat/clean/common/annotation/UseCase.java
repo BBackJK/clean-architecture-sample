@@ -1,17 +1,17 @@
-package bbackjk.test.caat.clean.common;
+package bbackjk.test.caat.clean.common.annotation;
 
 
 import org.springframework.core.annotation.AliasFor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.lang.annotation.*;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Component
-public @interface PersistenceAdapter {
+@Service
+public @interface UseCase {
 
-    @AliasFor(annotation = Component.class)
+    @AliasFor(annotation = Service.class)
     String value() default "";
 }

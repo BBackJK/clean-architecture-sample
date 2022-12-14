@@ -9,7 +9,7 @@ import bbackjk.test.caat.clean.article.domain.BoardArticle;
 import bbackjk.test.caat.clean.article.domain.BoardComment;
 import bbackjk.test.caat.clean.user.adapter.out.persistence.entity.UserEntity;
 import bbackjk.test.caat.clean.user.domain.User;
-import bbackjk.test.caat.clean.common.DomainMapHelper;
+import bbackjk.test.caat.clean.common.annotation.DomainMapHelper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,8 +22,8 @@ class BoardArticleMapHelper {
             , BoardEntity boardEntity
             , List<BoardCommentEntity> boardCommentEntityList
             , UserEntity userEntity
-            , UserEntity createdBy
-            , UserEntity updatedBy
+            , Long createdBy
+            , Long updatedBy
     ) {
         return BoardArticle.of(
                 new BoardArticle.BoardArticleId(boardArticleEntity.getId())
@@ -33,9 +33,9 @@ class BoardArticleMapHelper {
                 , boardArticleEntity.getContents()
                 , boardArticleEntity.getViewCount()
                 , boardArticleEntity.getCreatedAt()
-                , userEntityToDomain(createdBy)
+                , createdBy
                 , boardArticleEntity.getUpdatedAt()
-                , userEntityToDomain(updatedBy)
+                , updatedBy
                 , boardCommentToDomain(boardCommentEntityList)
         );
     }
@@ -49,9 +49,9 @@ class BoardArticleMapHelper {
                 , boardArticle.getContents()
                 , boardArticle.getViewCount()
                 , boardArticle.getCreatedAt()
-                , boardArticle.getCreatedBy().getId().getValue()
+                , boardArticle.getCreatedBy()
                 , boardArticle.getUpdatedAt()
-                , boardArticle.getUpdatedBy().getId().getValue()
+                , boardArticle.getUpdatedBy()
         );
     }
 
@@ -64,9 +64,9 @@ class BoardArticleMapHelper {
                 , boardArticle.getContents()
                 , boardArticle.getViewCount()
                 , boardArticle.getCreatedAt()
-                , boardArticle.getCreatedBy().getId().getValue()
+                , boardArticle.getCreatedBy()
                 , boardArticle.getUpdatedAt()
-                , boardArticle.getUpdatedBy().getId().getValue()
+                , boardArticle.getUpdatedBy()
         );
     }
 

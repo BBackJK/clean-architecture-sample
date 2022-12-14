@@ -50,6 +50,7 @@ public class BoardArticleController {
         );
     }
 
+    // 등록
     @PostMapping(value = "")
     JsonResult post(@RequestBody ArticleRegisterInput input) {
         // 세션으로 처리해야하지만 로그인 시스템 안만들었으니 이걸로 박음.

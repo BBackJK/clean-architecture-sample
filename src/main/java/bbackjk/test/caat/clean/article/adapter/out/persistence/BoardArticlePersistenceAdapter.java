@@ -10,7 +10,7 @@ import bbackjk.test.caat.clean.article.application.port.out.ModifyBoardArticlePo
 import bbackjk.test.caat.clean.article.application.port.out.RegisterBoardArticlePort;
 import bbackjk.test.caat.clean.article.domain.Board;
 import bbackjk.test.caat.clean.article.domain.BoardArticle;
-import bbackjk.test.caat.clean.common.PersistenceAdapter;
+import bbackjk.test.caat.clean.common.annotation.PersistenceAdapter;
 import bbackjk.test.caat.clean.user.adapter.out.persistence.dao.UserDao;
 import bbackjk.test.caat.common.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -40,16 +40,14 @@ public class BoardArticlePersistenceAdapter implements LoadBoardArticlePort
         final var boardArticle = boardArticleDao.findById(id.getValue()).orElseThrow(EntityNotFoundException::new);
         final var board = boardDao.findById(boardArticle.getBoardId()).orElseThrow(EntityNotFoundException::new);
         final var writer = userDao.findById(boardArticle.getUserId()).orElseThrow(EntityNotFoundException::new);
-        final var createdBy = userDao.findById(boardArticle.getCreatedId()).orElseThrow(EntityNotFoundException::new);
-        final var updatedBy = userDao.findById(boardArticle.getUpdatedId()).orElseThrow(EntityNotFoundException::new);
 
         return boardArticleMapHelper.entityToDomain(
                 boardArticle
                 , board
                 , Collections.emptyList()
                 , writer
-                , createdBy
-                , updatedBy
+                , writer.getId()
+                , writer.getId()
         );
     }
 
@@ -59,8 +57,6 @@ public class BoardArticlePersistenceAdapter implements LoadBoardArticlePort
         final var boardArticle = boardArticleDao.findById(id.getValue()).orElseThrow(EntityNotFoundException::new);
         final var board = boardDao.findById(boardArticle.getBoardId()).orElseThrow(EntityNotFoundException::new);
         final var writer = userDao.findById(boardArticle.getUserId()).orElseThrow(EntityNotFoundException::new);
-        final var createdBy = userDao.findById(boardArticle.getCreatedId()).orElseThrow(EntityNotFoundException::new);
-        final var updatedBy = userDao.findById(boardArticle.getUpdatedId()).orElseThrow(EntityNotFoundException::new);
         final var boardCommentList = boardCommentDao.findAllByBoardArticleId(boardArticle.getId());
 
         return boardArticleMapHelper.entityToDomain(
@@ -68,8 +64,8 @@ public class BoardArticlePersistenceAdapter implements LoadBoardArticlePort
                 , board
                 , boardCommentList
                 , writer
-                , createdBy
-                , updatedBy
+                , writer.getId()
+                , writer.getId()
         );
     }
 

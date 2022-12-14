@@ -9,7 +9,7 @@ import bbackjk.test.caat.clean.article.application.port.out.RegisterBoardArticle
 import bbackjk.test.caat.clean.article.domain.Board;
 import bbackjk.test.caat.clean.article.domain.BoardArticle;
 import bbackjk.test.caat.clean.user.domain.User;
-import bbackjk.test.caat.clean.common.UseCase;
+import bbackjk.test.caat.clean.common.annotation.UseCase;
 import lombok.RequiredArgsConstructor;
 
 @UseCase
